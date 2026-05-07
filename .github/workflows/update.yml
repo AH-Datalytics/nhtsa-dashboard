@@ -1,0 +1,28 @@
+name: Monthly NHTSA Data Update
+
+on:
+  schedule:
+    - cron: '0 14 8 * *'  # 8th of each month at 9 AM CT (2 PM UTC)
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120  # scraping can take a while
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Scrape NHTSA API and rebuild dashboard
+        run: python scripts/update.py
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npx vercel --prod --yes --token $VERCEL_TOKEN --scope ahdatalytics

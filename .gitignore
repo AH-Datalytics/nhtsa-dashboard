@@ -1,0 +1,6 @@
+node_modules/
+.vercel/
+__pycache__/
+*.pyc
+nhtsa_complaint_counts.json
+nhtsa_b64.txt
