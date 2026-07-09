@@ -24,7 +24,7 @@ B64_FILE = os.path.join(PROJECT_DIR, "nhtsa_b64.txt")
 INDEX_FILE = os.path.join(PROJECT_DIR, "index.html")
 
 YEARS = list(range(2015, datetime.now().year + 1))
-WORKERS = 8
+WORKERS = 24
 
 _lock = threading.Lock()
 _done = 0
