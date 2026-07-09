@@ -8,7 +8,7 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 120  # scraping can take a while
+    timeout-minutes: 240  # ~32K API calls; never finished in 120 even before data grew
 
     steps:
       - uses: actions/checkout@v4
