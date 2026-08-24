@@ -2,7 +2,7 @@ name: NHTSA Data Update
 
 on:
   schedule:
-    - cron: '0 14 5,10 * *'  # 5th and 10th of each month at 9 AM CT (2 PM UTC)
+    - cron: '0 14 10 * *'  # 10th of each month at 9 AM CT (2 PM UTC) - once monthly
   workflow_dispatch:
 
 jobs:
